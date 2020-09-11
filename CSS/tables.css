@@ -1,0 +1,58 @@
+table, td, tr{
+    border : solid black 1px;
+    padding : 10px;
+}
+
+table{
+    text-align: center;
+    border-collapse : collapse;
+    background-color : #0e1b3b;
+    margin: 80px 0 10px 0;
+    width : 80%;
+    height : 70%;
+    ;
+}
+
+thead{
+    background-color: #0083ffa1;
+    height :10%;
+}
+
+tbody{
+    height : 90%;
+    overflow : auto;
+    color: white;
+}
+
+td{
+    width : 10%;
+    border-color: white;
+}
+
+.tabLine{
+    height: 150px;
+}
+
+@media all and (max-width: 1200px) {
+    table{
+        width: 100%;
+    }
+}
+
+.page{
+    color : white;
+}
+
+.test{
+    display : flex;
+    margin-left: 20%;
+}
+
+img{
+    width : 50px;
+    height : 50px;
+}
+
+.buildItem{
+    margin: 20px;
+}

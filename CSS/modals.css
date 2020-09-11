@@ -1,0 +1,52 @@
+html{
+    overflow: hidden;
+}
+
+.myModal{
+    background-color: #000dff8f;
+    position: absolute;
+    bottom: 10px;
+    left : 10px;
+    width : auto;
+    height : 40px;
+    -webkit-animation: slideInDown .5s ease-in-out 0s;
+    display: none;
+}
+
+@-webkit-keyframes slideInDown {
+    from{
+        opacity: 0;
+        bottom: -40px;
+    }
+    to{
+        opacity: 1;
+        bottom: 10px;
+    }
+}
+
+
+.closeModal{
+    display: flex;
+    font-size: 30px;
+}
+
+.hideModal{
+    -webkit-animation: fadeOut 1s linear 0s;
+}
+
+@-webkit-keyframes fadeOut {
+    from{opacity: 1}
+    to{opacity : 0}
+}
+
+.modalContent{
+    display: flex;
+}
+
+.modalText{
+    margin: 0;
+}
+
+.showModal{
+    display: flex;
+}

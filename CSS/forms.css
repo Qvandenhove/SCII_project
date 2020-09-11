@@ -1,0 +1,59 @@
+/*CSS du menu deroulant d'édition de build */
+
+#deroulant{
+    width : 200px;
+    max-height : 400px;
+    overflow : auto;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap : wrap;
+}
+
+p{
+    position : relative;
+    background-color: #7c7bff;
+    cursor : pointer;
+}
+
+#chooseElement{
+    background-color : #6561ff;
+    width : 100%;
+    height : 0;
+    transition : all 1s ease 0s;
+}
+
+.building{
+    list-style : none;
+    width : 100%;
+    display: flex;
+    align-items: center;
+    background-color : #6561ff;
+    cursor : pointer;
+}
+
+textarea{
+    width : 250px;
+    height : 100px;
+    resize: none;
+    border-radius: 0.25rem;
+}
+
+#deroulant, #element{
+    background-color: #0e5db6;
+}
+
+#element{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+}
+
+.building:hover{
+    background : #7c7bff;
+}
+
+.form-control{
+    height : calc(1.5em + 1rem + 3px)
+}
