@@ -53,7 +53,8 @@ switch($action) {
         getBuilds($_GET['page']);
         break;
     case "seeBuilds" :
-        seeBuilds();
+        $builds = getBuilds($_GET['page']);
+        seeBuilds($builds);
         break;
     case "getBuildsCount" :
         getBuildsCount();
@@ -86,7 +87,8 @@ switch($action) {
         updateStep($_GET["build"],$_GET["step"],$array);
         break;
     case "seeBuild" :
-        seeBuild($_GET["build"]);
+        $build = getBuild($_GET["build"]);
+        seeBuild($build);
         break;
     case "finishBuild" :
         finishBuild($_GET['build']);

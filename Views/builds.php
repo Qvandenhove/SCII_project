@@ -15,7 +15,17 @@ $styleSheets = ["main","tables"]
             </tr>
         </thead>
         <tbody>
-
+            <?php forEach($builds as $build): ?>
+                <tr>
+                <td><?= $build["name"]?></td>
+                <td><?= $build["race"]?></td>
+                <td><?= $build["matchup"]?></td>
+                <td><?= $build["type"]?></td>
+                <td><?= $build["Note"]?></td>
+                <td><?= $build["Poster"]?></td>
+                <td><a href="index.php?action=seeBuild&build=<?=$build["id"]?>" class="btn btn-primary">Voir les étapes</a></td>
+            </tr>
+            <?php endforeach ?>
         </tbody>
     </table>
     <div class = "pager"></div>

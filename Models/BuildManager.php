@@ -26,15 +26,7 @@ class BuildManager extends Manager
     public function getBuilds($page)
     {
         $builds = $this->db->query("SELECT id,name,race,matchup,type,IFNULL(note, 'pas encore noté') AS Note,(SELECT pseudo FROM USERS WHERE id = BUILDS.poster) AS Poster FROM BUILDS WHERE isDone = true LIMIT ".strval(($page-1)*4).",4");
-        $buildList = array();
-        while($build = $builds->fetch()){
-            $build1 = array();
-            for ($i=0;$i<7;$i++){
-                array_push($build1,$build[$i]);
-            }
-            array_push($buildList,$build1);
-        }
-        return json_encode($buildList, JSON_UNESCAPED_UNICODE);
+        return $builds->fetchAll();
     }
 
     public function getNumberOfBuilds(){

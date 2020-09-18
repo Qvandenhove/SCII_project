@@ -31,7 +31,7 @@ function addBuild(){
     require("Views/addBuild.php");
 }
 
-function seeBuilds(){
+function seeBuilds($builds){
     require("Views/builds.php");
 }
 
@@ -56,7 +56,5 @@ function checkStep($array){
 }
 
 function seeBuild($build){
-    $stepManager = new Vandenhove\ProjectSC2\Models\StepManager();
-    $build = $stepManager->seeSteps($build);
     require("Views/seeBuild.php");
 }

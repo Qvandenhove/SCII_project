@@ -1,6 +1,7 @@
 <?php
 ob_start();
 $styleSheets = ["main","tables"];
+$stepCount = 1;
 ?>
     <table>
         <thead>
@@ -12,22 +13,15 @@ $styleSheets = ["main","tables"];
             </tr>
         </thead>
         <tbody>
-            <?php
-            $numStep = 0;
-            while($step = $build->fetch())
-            {
-                ?>
+            <?php forEach($build as $step): ?>
                 <tr>
-                    <td><?=$step["etape"] - 1?></td>
-                    <td><?=$step["item"]?></td>
-                    <td><?=$step["pop"]?></td>
-                    <td><?=$step["commentary"]?></td>
-
+                    <td><?= $stepCount ?></td>
+                    <td><img src="MediaContent\Pictures\<?= str_replace(" ", "_", $step["item"])?>.PNG"><?= $step["item"] ?></td>
+                    <td><?= $step["pop"] ?></td>
+                    <td><?= isset($step["commentary"]) ? $step["commentary"] : "" ?></td>
                 </tr>
-                <?php
-
-            }
-            ?>
+                <?php $stepCount++ ?>
+            <?php endforeach ?>
         </tbody>
     </table>
     <a href = "index.php?action=seeBuilds&page=1"><button class = "btn btn-primary">Retour à la liste</button></a>

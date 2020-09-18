@@ -39,6 +39,12 @@ function myBuilds($page){
     echo $builds;
 }
 
+function getBuild($build){
+    $stepManager = new Vandenhove\ProjectSC2\Models\StepManager();
+    $build = $stepManager->seeSteps($build)->fetchAll();
+    return $build;
+}
+
 function getPseudos(){
     $userManager = new Vandenhove\ProjectSC2\Models\UserManager();
     $userManager->getPseudos();
@@ -47,7 +53,7 @@ function getPseudos(){
 function getBuilds($page){
     $buildManager = new Vandenhove\ProjectSC2\Models\BuildManager();
     $builds = $buildManager->getBuilds($page);
-    echo $builds;
+    return $builds;
 }
 
 function addABuild($array){
