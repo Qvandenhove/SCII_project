@@ -4,15 +4,15 @@ $styleSheets = ["main","forms"];
 ?>
 <div class = "container justify-content-center">
     <div id = "main">
-        <form method="post" id = "infos">
+        <form method="post" id = "infos" action="index.php?action=connect">
             <div class="form-group">
                 <label for="pseudo">Votre Pseudo</label>
-                <input type="text" class="form-control" id="pseudo" minlength="6" required>
+                <input type="text" name="pseudo" class="form-control" id="pseudo" minlength="5">
                 <div id="wrongPseudo"></div>
             </div>
             <div class="form-group">
                 <label for="pass">Password</label>
-                <input type="password" class="form-control" id="pass" minlength = "6">
+                <input type="password" name="pass" class="form-control" id="pass" minlength = "6">
                 <div id = "wrongPass"></div>
             </div>
             <div class="form-group form-check">

@@ -1,6 +1,5 @@
 <?php
 session_start();
-//$array = array("content" => "content");
 $data = file_get_contents('php://input');
 $array = (json_decode($data,true));
 require("Controller/front.php");
@@ -15,17 +14,25 @@ else
 }
 switch($action) {
     case "subscribe" :
-        subscribe($array);
+        if ($_SERVER['REQUEST_METHOD'] == "POST"){
+            addUser($array);
+        }else{
+            subscribe();
+        }
         break;
     case "addUser" :
-        addUser($array);
+        
         break;
     case "getPseudos":
         getPseudos();
         break;
 
     case "connect" :
-        connect();
+        if ($_SERVER['REQUEST_METHOD'] == "POST"){
+            checkUser($array);
+        }else{
+            connect();
+        }
         break;
     case "checkUser" :
         checkUser($array);

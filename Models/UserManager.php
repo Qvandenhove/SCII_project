@@ -42,18 +42,22 @@ class UserManager extends Manager
         if($success)
         {
             $userLogin = $req->fetch();
-            if(password_verify($log["pass"],$userLogin["pass"])){
-                $_SESSION["id"] = $userLogin["id"];
-                $_SESSION["pseudo"] = $userLogin["pseudo"];
-                $_SESSION["lastName"] = $userLogin["last_name"];
-                return true;
-            }
-            else{
-                return false;
+            if ($userLogin){
+                if(password_verify($log["pass"],$userLogin["pass"])){
+                    $_SESSION["id"] = $userLogin["id"];
+                    $_SESSION["pseudo"] = $userLogin["pseudo"];
+                    $_SESSION["lastName"] = $userLogin["last_name"];
+                    return array("isCorrect" => true);
+                }
+                else{
+                    return array("isCorrect" => false, "reason" => "wrongPassword");
+                }
+            }else{
+                return array("isCorrect" => false, "reason" => "wrongPseudo");
             }
         }
         else{
-            return "Une erreur est survenue";
+            return array("isCorrect" => false, "reason" => "internal error");
         }
     }
 

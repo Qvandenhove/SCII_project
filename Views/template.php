@@ -64,7 +64,7 @@
     </div>
 </div>
 <footer class = "text-center">
-    <h3>Dernière Modification 13/02/2020</h3>
+    <h3>Dernière Modification 18/09/2020</h3>
 </footer>
 </body>
 </html>

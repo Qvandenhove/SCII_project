@@ -30,11 +30,7 @@ function addUser($array){
 function checkUser($log){
     $userManager = new Vandenhove\ProjectSC2\Models\UserManager();
     $isCorrect = $userManager->connect($log);
-    if($isCorrect){
-        echo json_encode(array("isCorrect" => true));
-    }else{
-        echo json_encode(array("isCorrect" => false));
-    }
+    echo json_encode($isCorrect);
 }
 
 function myBuilds($page){

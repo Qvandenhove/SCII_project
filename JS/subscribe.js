@@ -1,30 +1,24 @@
-let mail = null;
-let pass = "";
-let pseudo = "";
-let lastName = "";
-let firstName = "";
-let confirmPass = "";
-
 function envoyer(data,url) {
     let req = new XMLHttpRequest();
     req.open("POST",url);
+    req.onload = () => {
+        document.location.href = "index.php"
+
+    }
     req.setRequestHeader("Content-Type","application/json");
     req.send(JSON.stringify(data));
 }
 
-document.getElementById("infos").addEventListener("submit", event =>{
+document.getElementById("infos").addEventListener("submit", (event) =>{
     event.preventDefault();
     pass = document.getElementById("pass").value;
     confirmPass = document.getElementById("confirmPass").value;
     if(confirmPass === pass){
-        lastName = document.getElementById("lastName").value;
-        firstName = document.getElementById("firstName").value;
-        mail = document.getElementById("mail").value;
-        pseudo = document.getElementById("pseudo").value;
-        let user = {mail: mail, pseudo : pseudo, lastName : lastName, firstName : firstName, pass : pass};
-        console.log(document.location.href.split("=")[0]+"=addUser")
-        envoyer(user,document.location.href.split("=")[0]+"=addUser");
-        document.location.href = "index.php"
+        let user = {}
+        document.querySelectorAll("input[name]").forEach((input) => {
+            user[input.getAttribute("name")] = input.value
+        })
+        envoyer(user,document.location.href);
     }
     else
     {
@@ -36,7 +30,7 @@ document.getElementById("infos").addEventListener("submit", event =>{
 
 response = document.createElement("span");
 document.getElementsByClassName("form-check")[0].appendChild(response);
-document.getElementById("pseudo").addEventListener("input", event => {
+document.getElementById("pseudo").addEventListener("change", event => {
     req = new XMLHttpRequest();
 
     req.onreadystatechange = function (){

@@ -11,7 +11,7 @@ function connect()
     require("Views/login.php");
 }
 
-function subscribe($array)
+function subscribe()
 {
     require("Views/subscribe.php");
 }
